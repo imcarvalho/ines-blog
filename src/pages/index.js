@@ -5,10 +5,9 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
 
-export function Blog(props) {
-  const { data } = props;
-  const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMdx.edges;
+export default function Blog(props) {
+  const siteTitle = props.data.site.siteMetadata.title;
+  const posts = props.data.allMdx.edges;
 
   return (
     <Layout location={props.location} title={siteTitle}>
