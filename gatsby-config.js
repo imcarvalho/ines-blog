@@ -4,7 +4,7 @@ module.exports = {
     title: `Inês Carvalho Blog`,
     author: `Inês Carvalho`,
     description: `A senior frontend developer's thoughts`,
-    siteUrl: `https://ines-blog.netlify.com/`,
+    siteUrl: `https://imcarvalho.me/`,
     social: {
       twitter: `_imcarvalho`,
     },
