@@ -168,9 +168,11 @@ const ColumnStyle = styled.div`
   padding: 0 20px;
   line-height: 2em;
   width: 33%;
-  &:first-of-type,
+  &:first-of-type {
+    padding-left: 0;
+  }
   &:last-of-type {
-    padding: 0;
+    padding-right: 0;
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -192,6 +194,7 @@ const IconStyle = styled.img`
 
 const TextStyle = styled.p`
   text-align: left;
+  margin-bottom: 16px;
 `;
 
 const LinkStyle = styled.a`
@@ -210,6 +213,7 @@ const LinkStyle = styled.a`
 
 const ListStyle = styled.ul`
   text-align: left;
+  margin: 0;
 `;
 
 const ListItemStyle = styled.li`
