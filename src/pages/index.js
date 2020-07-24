@@ -153,6 +153,7 @@ const SectionTitleStyle = styled.h3`
   margin-top: 0;
   font-size: 2em;
   font-family: 'Lato', sans-serif;
+  font-weight: 700;
 `;
 
 const IconStyle = styled.img`
