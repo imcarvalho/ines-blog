@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import 'typeface-pacifico';
-import 'typeface-lato';
 
 export default function Layout(props) {
   const rootPath = `${__PATH_PREFIX__}/`;
