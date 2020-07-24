@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { rhythm } from '../utils/typography';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { PostExcerpt } from '../entities/Post';
 import { Location } from '../entities/Location';
@@ -22,7 +21,7 @@ export default function Blog(props: {
       location={props.location}
       siteMetadata={props.data.site.siteMetadata}
     >
-      <SEO title="All posts" />
+      <SEO title="Blog" />
       <Bio />
       <div style={{ margin: '20px 0 40px' }}>
         {posts.map(({ node }) => {
@@ -30,9 +29,11 @@ export default function Blog(props: {
           return (
             <div key={node.fields.slug}>
               <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
+                style={
+                  {
+                    //   marginBottom: rhythm(1 / 4),
+                  }
+                }
               >
                 <Link
                   style={{ boxShadow: `none` }}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Colors } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
@@ -22,7 +22,8 @@ export default function Layout(props: {
   const isLanding = props.location.pathname === rootPath;
 
   return (
-    <WrapperStyle>
+    <>
+      <GlobalStyle />
       <HeaderStyle isLanding={isLanding}>
         <div>
           <LinkStyle to={rootPath}>
@@ -76,20 +77,22 @@ export default function Layout(props: {
         </TextContainerStyle>
       </HeaderStyle>
       <Main>{props.children}</Main>
-    </WrapperStyle>
+    </>
   );
 }
 
-const LinkStyle = styled(Link)`
-  box-shadow: none;
-  color: #ffffff;
-`;
-
-const WrapperStyle = styled.div`
+const GlobalStyle = createGlobalStyle`
+  body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
   font-family: 'Lato', sans-serif;
+  }
+`;
+
+const LinkStyle = styled(Link)`
+  box-shadow: none;
+  color: #ffffff;
 `;
 
 const HeaderStyle = styled.header<{ isLanding: boolean }>`

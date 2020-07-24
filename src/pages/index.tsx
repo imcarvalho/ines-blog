@@ -18,7 +18,7 @@ export default function Index(props: {
       location={props.location}
       siteMetadata={props.data.site.siteMetadata}
     >
-      <SEO title={props.data.site.siteMetadata.author} />
+      <SEO title="Senior Frontend Developer" />
       <ContainerStyle>
         <ColumnStyle>
           <IconStyle
@@ -133,7 +133,7 @@ export default function Index(props: {
               >
                 My dogs
               </LinkStyle>
-              , and other people's dogs as well
+              , and other people's dogs as well{' '}
               <span aria-hidden="true">🐶</span>
             </ListItemStyle>
           </ListStyle>
@@ -159,7 +159,7 @@ const ContainerStyle = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const ColumnStyle = styled.div`
