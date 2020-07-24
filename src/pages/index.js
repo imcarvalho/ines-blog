@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 export default function Index(props) {
   return (
@@ -9,6 +10,7 @@ export default function Index(props) {
       location={props.location}
       siteMetadata={props.data.site.siteMetadata}
     >
+      <SEO title={props.data.site.siteMetadata.author} />
       <ContainerStyle>
         <ColumnStyle>
           <IconStyle
@@ -49,22 +51,22 @@ export default function Index(props) {
           <IconStyle src={`red-heart.png`} aria-hidden="true" alt="" />
           <SectionTitleStyle>Loved stack and tools</SectionTitleStyle>
           <ListStyle>
-            <li>
+            <ListItemStyle>
               Typescript
               <ListIconStyle src={`ts.png`} aria-hidden="true" alt="" />
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               Styled Components <span aria-hidden="true">💅</span>
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               React
               <ListIconStyle src={`react.svg`} aria-hidden="true" alt="" />
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               VSCode
               <ListIconStyle src={`vscode.svg`} aria-hidden="true" alt="" />
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               iTerm 2 +{' '}
               <LinkStyle
                 target="_blank"
@@ -81,17 +83,17 @@ export default function Index(props) {
               >
                 Neon Purple theme
               </LinkStyle>
-            </li>
+            </ListItemStyle>
           </ListStyle>
         </ColumnStyle>
         <ColumnStyle>
           <IconStyle src={`yarn.png`} aria-hidden="true" alt="" />
           <SectionTitleStyle>Hobbies and loves</SectionTitleStyle>
           <ListStyle>
-            <li>
+            <ListItemStyle>
               Knitting <span aria-hidden="true">🧶</span>
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               <LinkStyle
                 target="_blank"
                 href="https://www.stardewvalley.net/"
@@ -100,22 +102,22 @@ export default function Index(props) {
                 Stardew Valley
               </LinkStyle>{' '}
               <span aria-hidden="true">👩‍🌾</span>
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               Animal Crossing <span aria-hidden="true">☘️</span>
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               Instant and 35mm film photography{' '}
               <span aria-hidden="true">📸</span>
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               Dragon Ball
               <ListIconStyle src={`db.png`} aria-hidden="true" alt="" />
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               Reading <span aria-hidden="true">📚</span>
-            </li>
-            <li>
+            </ListItemStyle>
+            <ListItemStyle>
               <LinkStyle
                 target="_blank"
                 href="https://www.instagram.com/cucaelola/"
@@ -125,7 +127,7 @@ export default function Index(props) {
               </LinkStyle>
               , and other people's dogs as well
               <span aria-hidden="true">🐶</span>
-            </li>
+            </ListItemStyle>
           </ListStyle>
         </ColumnStyle>
       </ContainerStyle>
@@ -148,18 +150,20 @@ export const pageQuery = graphql`
 const ContainerStyle = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
-  color: #27515a;
-  font-family: 'Lato', sans-serif;
+  justify-content: space-between;
 `;
 
 const ColumnStyle = styled.div`
   text-align: center;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 0 20px;
   line-height: 2em;
   width: 33%;
+  &:first-of-type,
+  &:last-of-type {
+    padding: 0;
+  }
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -175,6 +179,7 @@ const SectionTitleStyle = styled.h3`
 const IconStyle = styled.img`
   height: 50px;
   width: 50px;
+  margin: 0;
 `;
 
 const TextStyle = styled.p`
@@ -197,6 +202,10 @@ const LinkStyle = styled.a`
 
 const ListStyle = styled.ul`
   text-align: left;
+`;
+
+const ListItemStyle = styled.li`
+  list-style-position: inside;
 `;
 
 const ListIconStyle = styled.img`

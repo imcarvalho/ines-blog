@@ -77,8 +77,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#67A7B9`,
         display: `minimal-ui`,
-        // edit below
-        icon: `content/assets/profile-pic.jpg`,
+        icon: `content/assets/personal-icon.png`,
       },
     },
     {

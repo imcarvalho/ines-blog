@@ -1,19 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export default function Layout(props) {
-  useEffect(() => {
-    if (!props.siteMetadata) {
-      return null;
-    }
-
-    window.document.title =
-      props.location === rootPath
-        ? props.siteMetadata.title
-        : props.siteMetadata.author;
-  });
-
   if (!props.siteMetadata) {
     return null;
   }
@@ -77,7 +66,7 @@ export default function Layout(props) {
           </LinkListItemStyle>
         </LinkListStyle>
       </HeaderStyle>
-      <main>{props.children}</main>
+      <Main>{props.children}</Main>
     </WrapperStyle>
   );
 }
@@ -106,11 +95,13 @@ const HeaderStyle = styled.header`
 const TitleStyle = styled.h1`
   font-size: 48px;
   font-family: 'Pacifico', 'Lato', sans-serif;
-  margin: 20px 0;
+  margin: 0;
+  line-height: 1.5em;
 `;
 
 const SubTitleStyle = styled.h2`
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
@@ -121,6 +112,7 @@ const AvatarStyle = styled.img`
   border: 10px #fff solid;
   width: 200px;
   margin: auto;
+  box-sizing: content-box;
 `;
 
 const LinkListStyle = styled.ul`
@@ -130,7 +122,7 @@ const LinkListStyle = styled.ul`
 `;
 
 const LinkListItemStyle = styled.li`
-  padding: 20px;
+  padding: 0 20px;
   display: inline;
 `;
 
@@ -159,6 +151,12 @@ const LinkIconStyle = styled.svg`
     width: 40px;
     margin-top: 20px;
   }
+`;
+
+const Main = styled.main`
+  color: #27515a;
+  font-family: 'Lato', sans-serif;
+  padding: 20px;
 `;
 
 const links = [
