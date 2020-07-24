@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { Colors } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 

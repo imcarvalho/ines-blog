@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
   body {
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
+      background-color: ${Colors.LightBackground};
       font-family: 'Lato', sans-serif;
       }
   a {
@@ -93,18 +93,18 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: none;
       box-shadow: none;
       transition: color 1s;
-      color: ${Colors.DefaultForeground};
+      color: ${Colors.LightForeground};
       &:visited {
-          color: ${Colors.DefaultForeground};
+          color: ${Colors.LightForeground};
       }
       &:hover {
-          color: ${Colors.DefaultForegroundHover};
+          color: ${Colors.LightForegroundHover};
       }
   }
   h3 {
-      font-size: 2em;
+      font-size: 32px;
       font-weight: 700;
-      margin-top: 0;
+      margin: 0 0 10px 0;
     }
   ul {
       margin:0;
@@ -114,13 +114,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const LinkStyle = styled(Link)`
-  box-shadow: none;
-  color: #ffffff;
+  color: ${Colors.LightBackground};
 `;
 
 const HeaderStyle = styled.header<{ isLanding: boolean }>`
   background-color: ${Colors.HeaderBackground};
-  color: #ffffff;
+  color: ${Colors.LightBackground};
   display: flex;
   flex-direction: ${props => (props.isLanding === true ? 'column' : 'row')};
   text-align: center;

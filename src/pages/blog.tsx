@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Bio from '../components/bio';
+import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
@@ -22,25 +22,13 @@ export default function Blog(props: {
       siteMetadata={props.data.site.siteMetadata}
     >
       <SEO title="Blog" />
-      <Bio />
-      <div style={{ margin: '20px 0 40px' }}>
+      <PostContainerStyle>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
-            <div key={node.fields.slug}>
-              <h3
-                style={
-                  {
-                    //   marginBottom: rhythm(1 / 4),
-                  }
-                }
-              >
-                <Link
-                  style={{ boxShadow: `none` }}
-                  to={`/blog${node.fields.slug}`}
-                >
-                  {title}
-                </Link>
+            <PostStyle key={node.fields.slug}>
+              <h3>
+                <Link to={`/blog${node.fields.slug}`}>{title}</Link>
               </h3>
               <small>{node.frontmatter.date}</small>
               <p
@@ -48,13 +36,24 @@ export default function Blog(props: {
                   __html: node.frontmatter.description || node.excerpt,
                 }}
               />
-            </div>
+            </PostStyle>
           );
         })}
-      </div>
+      </PostContainerStyle>
     </Layout>
   );
 }
+
+const PostContainerStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const PostStyle = styled.div`
+  width: 300px;
+`;
 
 export const pageQuery = graphql`
   query {

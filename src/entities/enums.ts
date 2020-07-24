@@ -1,5 +1,6 @@
 export enum Colors {
   HeaderBackground = '#66a7b8',
-  DefaultForeground = '#42798f',
-  DefaultForegroundHover = '#b3a500',
+  LightForeground = '#42798f',
+  LightBackground = '#ffffff',
+  LightForegroundHover = '#7000E0',
 }
