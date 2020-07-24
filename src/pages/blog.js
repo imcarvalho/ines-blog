@@ -6,11 +6,13 @@ import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
 
 export default function Blog(props) {
-  const siteTitle = props.data.site.siteMetadata.title;
   const posts = props.data.allMdx.edges;
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout
+      location={props.location}
+      siteMetadata={props.data.site.siteMetadata}
+    >
       <SEO title="All posts" />
       <Bio />
       <div style={{ margin: '20px 0 40px' }}>
@@ -49,6 +51,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        author
       }
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {

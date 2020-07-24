@@ -4,7 +4,10 @@ import styled from 'styled-components';
 
 export default function Index(props) {
   return (
-    <Layout>
+    <Layout
+      location={props.location}
+      siteMetadata={props.data.site.siteMetadata}
+    >
       <ContainerStyle>
         <ColumnStyle>
           <IconStyle
@@ -128,6 +131,18 @@ export default function Index(props) {
     </Layout>
   );
 }
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        author
+      }
+    }
+  }
+`;
 
 const ContainerStyle = styled.div`
   display: flex;

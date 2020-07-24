@@ -6,13 +6,20 @@ export default function Layout(props) {
   const rootPath = `${__PATH_PREFIX__}/`;
   const blogPath = `${__PATH_PREFIX__}/blog/`;
 
+  if (!props.siteMetadata) {
+    return null;
+  }
+
   return (
     <WrapperStyle>
       <HeaderStyle>
         <LinkStyle to={rootPath}>
-          <AvatarStyle src={`avatar_small.jpg`} alt="Home" />
+          <AvatarStyle
+            src={`${props.siteMetadata.siteUrl}/avatar_small.jpg`}
+            alt="Home"
+          />
         </LinkStyle>
-        <TitleStyle>Inês Carvalho</TitleStyle>
+        <TitleStyle>{props.siteMetadata.author}</TitleStyle>
         <SubTitleStyle>Senior Frontend Developer</SubTitleStyle>
         <LinkListStyle>
           {links.map(link => (
