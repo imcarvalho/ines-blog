@@ -5,11 +5,15 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
 import { SiteMetadata } from '../entities/SiteMetadata';
-import { Post } from '../entities/Post';
+import { PostExcerpt } from '../entities/Post';
+import { Location } from '../entities/Location';
 
 export default function Blog(props: {
-  location: string;
-  data: { site: { siteMetadata: SiteMetadata }; allMdx: { edges: Post[] } };
+  location: Location;
+  data: {
+    site: { siteMetadata: SiteMetadata };
+    allMdx: { edges: { node: PostExcerpt }[] };
+  };
 }) {
   const posts = props.data.allMdx.edges;
 

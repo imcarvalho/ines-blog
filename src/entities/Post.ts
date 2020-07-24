@@ -1,13 +1,20 @@
-export type Post = {
-  node: {
-    excerpt: string;
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      date: string;
-      title: string;
-      description: string;
-    };
+type Frontmatter = {
+  date: string;
+  title: string;
+  description: string;
+};
+
+export type PostExcerpt = {
+  excerpt: string;
+  fields: {
+    slug: string;
   };
+  frontmatter: Frontmatter;
+};
+
+export type Post = {
+  id: string;
+  excerpt: string;
+  body: string;
+  frontmatter: Frontmatter;
 };

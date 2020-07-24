@@ -27,6 +27,7 @@ export default function Layout(props: {
         <div>
           <LinkStyle to={rootPath}>
             <AvatarStyle
+              isLanding={isLanding}
               src={`${props.siteMetadata.siteUrl}/avatar_small.jpg`}
               alt="Home"
             />
@@ -126,10 +127,10 @@ const SubTitleStyle = styled.h2`
   font-family: 'Lato', sans-serif;
 `;
 
-const AvatarStyle = styled.img`
+const AvatarStyle = styled.img<{ isLanding: boolean }>`
   border-radius: 50%;
   border: 10px #fff solid;
-  width: 200px;
+  width: ${props => (props.isLanding ? 200 : 150)}px;
   margin: auto;
   box-sizing: content-box;
 `;
