@@ -14,6 +14,10 @@ export default function Layout(props) {
         : props.siteMetadata.author;
   });
 
+  if (!props.siteMetadata) {
+    return null;
+  }
+
   const rootPath = `${__PATH_PREFIX__}/`;
   const blogPath = `${__PATH_PREFIX__}/blog/`;
 
