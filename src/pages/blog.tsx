@@ -62,6 +62,11 @@ export const pageQuery = graphql`
         title
         siteUrl
         author
+        social {
+          twitter
+          github
+          linkedin
+        }
       }
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {

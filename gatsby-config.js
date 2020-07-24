@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
-    // edit below
     title: `Inês Carvalho`,
     author: `Inês Carvalho`,
-    description: `A senior frontend developer's thoughts`,
+    description: `Senior Frontend Developer`,
     siteUrl: `https://imcarvalho.me/`,
     social: {
       twitter: `_imcarvalho`,
+      github: `imcarvalho`,
+      linkedin: `imcarvalho`,
     },
   },
   plugins: [
@@ -64,8 +65,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // edit below
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `G-0LC6GFSRMJ`,
       },
     },
     {

@@ -149,6 +149,11 @@ export const pageQuery = graphql`
         title
         siteUrl
         author
+        social {
+          twitter
+          github
+          linkedin
+        }
       }
     }
   }
