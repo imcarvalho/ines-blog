@@ -4,8 +4,13 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
+import { SiteMetadata } from '../entities/SiteMetadata';
+import { Post } from '../entities/Post';
 
-export default function Blog(props) {
+export default function Blog(props: {
+  location: string;
+  data: { site: { siteMetadata: SiteMetadata }; allMdx: { edges: Post[] } };
+}) {
   const posts = props.data.allMdx.edges;
 
   return (

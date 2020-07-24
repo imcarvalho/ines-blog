@@ -3,8 +3,15 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { Colors } from '../entities/enums';
+import { SiteMetadata } from '../entities/SiteMetadata';
 
-export default function Index(props) {
+export default function Index(props: {
+  location: string;
+  data: {
+    site: { siteMetadata: SiteMetadata };
+  };
+}) {
   return (
     <Layout
       location={props.location}
@@ -191,12 +198,12 @@ const LinkStyle = styled.a`
   text-decoration: none;
   box-shadow: none;
   transition: color 1s;
-  color: #42798f;
+  color: ${Colors.DefaultForeground};
   &:visited {
-    color: #42798f;
+    color: ${Colors.DefaultForeground};
   }
   &:hover {
-    color: #b3a500;
+    color: ${Colors.DefaultForegroundHover};
   }
 `;
 
