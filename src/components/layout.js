@@ -3,12 +3,19 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export default function Layout(props) {
-  const rootPath = `${__PATH_PREFIX__}/`;
-  const blogPath = `${__PATH_PREFIX__}/blog/`;
-
   if (!props.siteMetadata) {
     return null;
   }
+
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const blogPath = `${__PATH_PREFIX__}/blog/`;
+
+  const title =
+    props.location === rootPath
+      ? props.siteMetadata.title
+      : props.siteMetadata.author;
+
+  window.document.title = title;
 
   return (
     <WrapperStyle>
@@ -19,7 +26,7 @@ export default function Layout(props) {
             alt="Home"
           />
         </LinkStyle>
-        <TitleStyle>{props.siteMetadata.author}</TitleStyle>
+        <TitleStyle>{title}</TitleStyle>
         <SubTitleStyle>Senior Frontend Developer</SubTitleStyle>
         <LinkListStyle>
           {links.map(link => (
