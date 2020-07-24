@@ -12,7 +12,7 @@ export default function Layout(props) {
     <WrapperStyle>
       <HeaderStyle>
         <LinkStyle to={rootPath}>
-          <AvatarStyle src={`${rootPath}avatar_small.jpg`} alt="avatar" />
+          <AvatarStyle src={`avatar_small.jpg`} alt="Home" />
         </LinkStyle>
         <TitleStyle>Inês Carvalho</TitleStyle>
         <SubTitleStyle>Senior Frontend Developer</SubTitleStyle>

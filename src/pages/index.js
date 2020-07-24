@@ -8,7 +8,7 @@ export default function Index(props) {
       <ContainerStyle>
         <ColumnStyle>
           <IconStyle
-            src="./female-technologist.png"
+            src={`female-technologist.png`}
             aria-hidden="true"
             alt=""
           />
@@ -42,23 +42,23 @@ export default function Index(props) {
           </TextStyle>
         </ColumnStyle>
         <ColumnStyle>
-          <IconStyle src="./red-heart.png" aria-hidden="true" alt="" />
+          <IconStyle src={`red-heart.png`} aria-hidden="true" alt="" />
           <SectionTitleStyle>Loved stack and tools</SectionTitleStyle>
           <ListStyle>
             <li>
               Typescript
-              <ListIconStyle src="./ts.png" aria-hidden="true" alt="" />
+              <ListIconStyle src={`ts.png`} aria-hidden="true" alt="" />
             </li>
             <li>
               Styled Components <span aria-hidden="true">💅</span>
             </li>
             <li>
               React
-              <ListIconStyle src="./react.svg" aria-hidden="true" alt="" />
+              <ListIconStyle src={`react.svg`} aria-hidden="true" alt="" />
             </li>
             <li>
               VSCode
-              <ListIconStyle src="./vscode.svg" aria-hidden="true" alt="" />
+              <ListIconStyle src={`vscode.svg`} aria-hidden="true" alt="" />
             </li>
             <li>
               iTerm 2 +{' '}
@@ -81,7 +81,7 @@ export default function Index(props) {
           </ListStyle>
         </ColumnStyle>
         <ColumnStyle>
-          <IconStyle src="./yarn.png" aria-hidden="true" alt="" />
+          <IconStyle src={`yarn.png`} aria-hidden="true" alt="" />
           <SectionTitleStyle>Hobbies and loves</SectionTitleStyle>
           <ListStyle>
             <li>
@@ -106,7 +106,7 @@ export default function Index(props) {
             </li>
             <li>
               Dragon Ball
-              <ListIconStyle src="./db.png" aria-hidden="true" alt="" />
+              <ListIconStyle src={`db.png`} aria-hidden="true" alt="" />
             </li>
             <li>
               Reading <span aria-hidden="true">📚</span>
