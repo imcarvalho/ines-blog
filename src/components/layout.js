@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export default function Layout(props) {
-  if (!props.siteMetadata) {
-    return null;
-  }
+  useEffect(() => {
+    if (!props.siteMetadata) {
+      return null;
+    }
+
+    window.document.title =
+      props.location === rootPath
+        ? props.siteMetadata.title
+        : props.siteMetadata.author;
+  });
 
   const rootPath = `${__PATH_PREFIX__}/`;
   const blogPath = `${__PATH_PREFIX__}/blog/`;
@@ -15,7 +22,9 @@ export default function Layout(props) {
       ? props.siteMetadata.title
       : props.siteMetadata.author;
 
-  window.document.title = title;
+  if (!props.siteMetadata) {
+    return null;
+  }
 
   return (
     <WrapperStyle>
