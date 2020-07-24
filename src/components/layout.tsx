@@ -83,11 +83,34 @@ export default function Layout(props: {
 
 const GlobalStyle = createGlobalStyle`
   body {
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
-  font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: 'Lato', sans-serif;
+      }
+  a {
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: none;
+      transition: color 1s;
+      color: ${Colors.DefaultForeground};
+      &:visited {
+          color: ${Colors.DefaultForeground};
+      }
+      &:hover {
+          color: ${Colors.DefaultForegroundHover};
+      }
   }
+  h3 {
+      font-size: 2em;
+      font-weight: 700;
+      margin-top: 0;
+    }
+  ul {
+      margin:0;
+      padding: 0;
+  }
+  li { list-style-position: inside; }
 `;
 
 const LinkStyle = styled(Link)`

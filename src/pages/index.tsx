@@ -26,7 +26,7 @@ export default function Index(props: {
             aria-hidden="true"
             alt=""
           />
-          <SectionTitleStyle>My background</SectionTitleStyle>
+          <h3>My background</h3>
           <TextStyle>
             Born in Portugal <span aria-hidden="true">🇵🇹</span>, currently
             living in Berlin, Deutschland <span aria-hidden="true">🇩🇪</span>
@@ -45,97 +45,97 @@ export default function Index(props: {
             working predominantly with React.
           </TextStyle>
           <TextStyle>
-            <LinkStyle
+            <a
               target="_blank"
               href="https://www.linkedin.com/in/imcarvalho/"
               rel="noreferrer"
             >
               Check my LinkedIn
-            </LinkStyle>{' '}
+            </a>{' '}
             for more detailed info <span aria-hidden="true">✨</span>
           </TextStyle>
         </ColumnStyle>
         <ColumnStyle>
           <IconStyle src={`red-heart.png`} aria-hidden="true" alt="" />
-          <SectionTitleStyle>Loved stack and tools</SectionTitleStyle>
+          <h3>Loved stack and tools</h3>
           <ListStyle>
-            <ListItemStyle>
+            <li>
               Typescript
               <ListIconStyle src={`ts.png`} aria-hidden="true" alt="" />
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               Styled Components <span aria-hidden="true">💅</span>
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               React
               <ListIconStyle src={`react.svg`} aria-hidden="true" alt="" />
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               VSCode
               <ListIconStyle src={`vscode.svg`} aria-hidden="true" alt="" />
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               iTerm 2 +{' '}
-              <LinkStyle
+              <a
                 target="_blank"
                 href="https://github.com/denysdovhan/spaceship-prompt"
                 rel="noreferrer"
               >
                 Spaceship prompt
-              </LinkStyle>{' '}
+              </a>{' '}
               +{' '}
-              <LinkStyle
+              <a
                 target="_blank"
                 href="https://github.com/imcarvalho/neonpurple"
                 rel="noreferrer"
               >
                 Neon Purple theme
-              </LinkStyle>
-            </ListItemStyle>
+              </a>
+            </li>
           </ListStyle>
         </ColumnStyle>
         <ColumnStyle>
           <IconStyle src={`yarn.png`} aria-hidden="true" alt="" />
-          <SectionTitleStyle>Hobbies and loves</SectionTitleStyle>
+          <h3>Hobbies and loves</h3>
           <ListStyle>
-            <ListItemStyle>
+            <li>
               Knitting <span aria-hidden="true">🧶</span>
-            </ListItemStyle>
-            <ListItemStyle>
-              <LinkStyle
+            </li>
+            <li>
+              <a
                 target="_blank"
                 href="https://www.stardewvalley.net/"
                 rel="noreferrer"
               >
                 Stardew Valley
-              </LinkStyle>{' '}
+              </a>{' '}
               <span aria-hidden="true">👩‍🌾</span>
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               Animal Crossing <span aria-hidden="true">☘️</span>
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               Instant and 35mm film photography{' '}
               <span aria-hidden="true">📸</span>
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               Dragon Ball
               <ListIconStyle src={`db.png`} aria-hidden="true" alt="" />
-            </ListItemStyle>
-            <ListItemStyle>
+            </li>
+            <li>
               Reading <span aria-hidden="true">📚</span>
-            </ListItemStyle>
-            <ListItemStyle>
-              <LinkStyle
+            </li>
+            <li>
+              <a
                 target="_blank"
                 href="https://www.instagram.com/cucaelola/"
                 rel="noreferrer"
               >
                 My dogs
-              </LinkStyle>
+              </a>
               , and other people's dogs as well{' '}
               <span aria-hidden="true">🐶</span>
-            </ListItemStyle>
+            </li>
           </ListStyle>
         </ColumnStyle>
       </ContainerStyle>
@@ -179,13 +179,6 @@ const ColumnStyle = styled.div`
   }
 `;
 
-const SectionTitleStyle = styled.h3`
-  margin-top: 0;
-  font-size: 2em;
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-`;
-
 const IconStyle = styled.img`
   height: 50px;
   width: 50px;
@@ -197,27 +190,8 @@ const TextStyle = styled.p`
   margin-bottom: 16px;
 `;
 
-const LinkStyle = styled.a`
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: none;
-  transition: color 1s;
-  color: ${Colors.DefaultForeground};
-  &:visited {
-    color: ${Colors.DefaultForeground};
-  }
-  &:hover {
-    color: ${Colors.DefaultForegroundHover};
-  }
-`;
-
 const ListStyle = styled.ul`
   text-align: left;
-  margin: 0;
-`;
-
-const ListItemStyle = styled.li`
-  list-style-position: inside;
 `;
 
 const ListIconStyle = styled.img`
