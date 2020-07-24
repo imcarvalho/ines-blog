@@ -83,6 +83,11 @@ export const pageQuery = graphql`
         title
         author
         siteUrl
+        social {
+          twitter
+          github
+          linkedin
+        }
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {
