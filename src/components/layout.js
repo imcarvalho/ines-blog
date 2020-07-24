@@ -3,10 +3,6 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export default function Layout(props) {
-  if (!props.siteMetadata) {
-    return null;
-  }
-
   const rootPath = `${__PATH_PREFIX__}/`;
   const blogPath = `${__PATH_PREFIX__}/blog/`;
 
@@ -14,10 +10,6 @@ export default function Layout(props) {
     props.location === rootPath
       ? props.siteMetadata.title
       : props.siteMetadata.author;
-
-  if (!props.siteMetadata) {
-    return null;
-  }
 
   return (
     <WrapperStyle>
