@@ -1,7 +1,6 @@
 type Frontmatter = {
   date: string;
   title: string;
-  description: string;
 };
 
 export type PostExcerpt = {
