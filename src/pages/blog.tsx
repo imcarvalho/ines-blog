@@ -22,37 +22,40 @@ export default function Blog(props: {
       siteMetadata={props.data.site.siteMetadata}
     >
       <SEO title="Blog" />
-      <PostContainerStyle>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <PostStyle key={node.fields.slug}>
-              <h3>
-                <Link to={`/blog${node.fields.slug}`}>{title}</Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.excerpt,
-                }}
-              />
-            </PostStyle>
-          );
-        })}
-      </PostContainerStyle>
+      <PageTitleStyle>Blog posts</PageTitleStyle>
+      <ContainerStyle>
+        <PostsStyle>
+          {posts.map(({ node }) => {
+            return (
+              <li key={node.fields.slug}>
+                {node.frontmatter.date}{' '}
+                <Link to={`/blog${node.fields.slug}`}>
+                  {node.frontmatter.title}
+                </Link>
+              </li>
+            );
+          })}
+        </PostsStyle>
+      </ContainerStyle>
     </Layout>
   );
 }
 
-const PostContainerStyle = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+const PageTitleStyle = styled.h3`
+  text-align: center;
 `;
 
-const PostStyle = styled.div`
-  width: 300px;
+const ContainerStyle = styled.div`
+  display: flex;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+`;
+
+const PostsStyle = styled.ul`
+  list-style: none;
+  width: 60%;
 `;
 
 export const pageQuery = graphql`
@@ -72,12 +75,11 @@ export const pageQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY/MM/DD")
             title
           }
         }
