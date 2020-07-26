@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { PostExcerpt } from '../entities/Post';
 import { Location } from '../entities/Location';
+import getIcon from '../utils/getIcon';
 
 export default function Blog(props: {
   location: Location;
@@ -66,9 +67,9 @@ export const pageQuery = graphql`
         siteUrl
         author
         social {
-          twitter
-          github
-          linkedin
+          label
+          isExternal
+          url
         }
       }
     }

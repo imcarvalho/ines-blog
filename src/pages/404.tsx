@@ -29,9 +29,9 @@ export const pageQuery = graphql`
         siteUrl
         author
         social {
-          twitter
-          github
-          linkedin
+          label
+          isExternal
+          url
         }
       }
     }

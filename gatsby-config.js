@@ -4,11 +4,28 @@ module.exports = {
     author: `Inês Carvalho`,
     description: `Senior Frontend Developer`,
     siteUrl: `https://imcarvalho.me/`,
-    social: {
-      twitter: `_imcarvalho`,
-      github: `imcarvalho`,
-      linkedin: `imcarvalho`,
-    },
+    social: [
+      {
+        label: 'GitHub',
+        isExternal: true,
+        url: 'https://github.com/imcarvalho',
+      },
+      {
+        label: 'Twitter',
+        isExternal: true,
+        url: 'https://twitter.com/_imcarvalho',
+      },
+      {
+        label: 'LinkedIn',
+        isExternal: true,
+        url: 'https://www.linkedin.com/in/imcarvalho',
+      },
+      {
+        label: 'Blog',
+        isExternal: false,
+        url: '/blog',
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

@@ -1,8 +1,12 @@
-type Social = { twitter: string; linkedin: string; github: string };
+export type Social = {
+  label: string;
+  isExternal: boolean;
+  url: string;
+};
 
 export type SiteMetadata = {
   author: string;
   siteUrl: string;
   title: string;
-  social: Social;
+  social: Social[];
 };
