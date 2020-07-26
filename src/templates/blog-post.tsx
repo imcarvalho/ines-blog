@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import SEO from '../components/Seo';
+import PreviousNextPosts from '../components/PreviousNextPosts';
 import { Post, PostExcerpt } from '../entities/Post';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
@@ -19,7 +18,6 @@ export default function BlogPostTemplate(props: {
   }
 
   const post = props.data.mdx;
-  const { previous, next } = props.pageContext;
 
   return (
     <Layout
@@ -31,23 +29,7 @@ export default function BlogPostTemplate(props: {
       <p>{post.frontmatter.date}</p>
       <MDXRenderer>{post.body}</MDXRenderer>
       <hr />
-      <Bio />
-      <ul>
-        <li>
-          {previous && (
-            <Link to={`/blog${previous.fields.slug}`} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={`/blog${next.fields.slug}`} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </ul>
+      <PreviousNextPosts posts={props.pageContext} />
     </Layout>
   );
 }

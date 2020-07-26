@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import SEO from '../components/Seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 
