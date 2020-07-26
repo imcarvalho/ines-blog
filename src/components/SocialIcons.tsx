@@ -51,7 +51,7 @@ const LinkListItemStyle = styled.li<{ isLanding: boolean }>`
 
 const BasicLinkStyle = `text-decoration: none;
 transition: color 1s;
-fill: #fff;
+fill: #ffffff;
 outline-color: #4d4d4d;
 box-shadow: none;`;
 

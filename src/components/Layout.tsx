@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Colors } from '../entities/enums';
+import { Colors, Dimensions } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 import SocialIcons from './SocialIcons';
+import Footer from './Footer';
 
 export default function Layout(props: {
   location: Location;
@@ -23,28 +24,31 @@ export default function Layout(props: {
   return (
     <>
       <GlobalStyle />
-      <HeaderStyle isLanding={isLanding}>
-        <div>
-          <LinkStyle to={rootPath}>
-            <AvatarStyle
+      <MainContentWrapperStyle>
+        <HeaderStyle isLanding={isLanding}>
+          <div>
+            <LinkStyle to={rootPath}>
+              <AvatarStyle
+                isLanding={isLanding}
+                src={`${props.siteMetadata.siteUrl}/avatar_small.jpg`}
+                alt="Home"
+              />
+            </LinkStyle>
+          </div>
+          <TextContainerStyle isLanding={isLanding}>
+            <TitleStyle>
+              {isLanding ? props.siteMetadata.title : props.siteMetadata.author}
+            </TitleStyle>
+            <SubTitleStyle>Senior Frontend Developer</SubTitleStyle>
+            <SocialIcons
               isLanding={isLanding}
-              src={`${props.siteMetadata.siteUrl}/avatar_small.jpg`}
-              alt="Home"
+              socialLinks={props.siteMetadata.social}
             />
-          </LinkStyle>
-        </div>
-        <TextContainerStyle isLanding={isLanding}>
-          <TitleStyle>
-            {isLanding ? props.siteMetadata.title : props.siteMetadata.author}
-          </TitleStyle>
-          <SubTitleStyle>Senior Frontend Developer</SubTitleStyle>
-          <SocialIcons
-            isLanding={isLanding}
-            socialLinks={props.siteMetadata.social}
-          />
-        </TextContainerStyle>
-      </HeaderStyle>
-      <Main>{props.children}</Main>
+          </TextContainerStyle>
+        </HeaderStyle>
+        <Main>{props.children}</Main>
+      </MainContentWrapperStyle>
+      {!isLanding && <Footer />}
     </>
   );
 }
@@ -122,14 +126,18 @@ const SubTitleStyle = styled.h2`
 
 const AvatarStyle = styled.img<{ isLanding: boolean }>`
   border-radius: 50%;
-  border: 10px #fff solid;
+  border: 10px #ffffff solid;
   width: ${props => (props.isLanding ? 200 : 150)}px;
   margin: auto;
   box-sizing: content-box;
 `;
 
 const Main = styled.main`
-  color: #27515a;
+  color: ${Colors.LightText};
   font-family: 'Lato', sans-serif;
   padding: 20px;
+`;
+
+const MainContentWrapperStyle = styled.div`
+  min-height: calc(100vh - ${Dimensions.FooterHeight});
 `;
