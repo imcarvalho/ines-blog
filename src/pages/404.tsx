@@ -24,16 +24,7 @@ export default function NotFoundPage(props: {
 export const pageQuery = graphql`
   query {
     site {
-      siteMetadata {
-        title
-        siteUrl
-        author
-        social {
-          label
-          isExternal
-          url
-        }
-      }
+      ...SiteMetadataFragment
     }
   }
 `;

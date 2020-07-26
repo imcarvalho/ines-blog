@@ -62,16 +62,7 @@ const PostsStyle = styled.ul`
 export const pageQuery = graphql`
   query {
     site {
-      siteMetadata {
-        title
-        siteUrl
-        author
-        social {
-          label
-          isExternal
-          url
-        }
-      }
+      ...SiteMetadataFragment
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {

@@ -14,8 +14,11 @@ export default function BlogPostTemplate(props: {
   data: { mdx: Post; site: { siteMetadata: SiteMetadata } };
   pageContext: { previous: PostExcerpt; next: PostExcerpt };
 }) {
+  if (!props.data) {
+    return null;
+  }
+
   const post = props.data.mdx;
-  const siteTitle = props.data.site.siteMetadata.title;
   const { previous, next } = props.pageContext;
 
   return (
@@ -25,35 +28,11 @@ export default function BlogPostTemplate(props: {
     >
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <h1>{post.frontmatter.title}</h1>
-      <p
-        style={{
-          //   ...scale(-1 / 5),
-          display: `block`,
-          //   marginBottom: rhythm(1),
-          //   marginTop: rhythm(-1),
-        }}
-      >
-        {post.frontmatter.date}
-      </p>
+      <p>{post.frontmatter.date}</p>
       <MDXRenderer>{post.body}</MDXRenderer>
-      <hr
-        style={
-          {
-            //   marginBottom: rhythm(1),
-          }
-        }
-      />
+      <hr />
       <Bio />
-
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-        }}
-      >
+      <ul>
         <li>
           {previous && (
             <Link to={`/blog${previous.fields.slug}`} rel="prev">
@@ -76,16 +55,7 @@ export default function BlogPostTemplate(props: {
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
-      siteMetadata {
-        title
-        author
-        siteUrl
-        social {
-          label
-          isExternal
-          url
-        }
-      }
+      ...SiteMetadataFragment
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
