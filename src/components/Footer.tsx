@@ -27,8 +27,7 @@ const FooterStyle = styled.footer`
 
 const LinkStyle = styled.a`
   color: #ffffff;
-
   &:hover {
-    color: inherit;
+    color: #ffffff;
   }
 `;
