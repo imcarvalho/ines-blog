@@ -26,7 +26,7 @@ export default function BlogPostTemplate(props: {
     >
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <h1>{post.frontmatter.title}</h1>
-      <p>{post.frontmatter.date}</p>
+      <strong>{post.frontmatter.date}</strong>
       <MDXRenderer>{post.body}</MDXRenderer>
       <hr />
       <PreviousNextPosts posts={props.pageContext} />
