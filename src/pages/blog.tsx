@@ -6,7 +6,6 @@ import SEO from '../components/Seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { PostExcerpt } from '../entities/Post';
 import { Location } from '../entities/Location';
-import getIcon from '../utils/getIcon';
 
 export default function Blog(props: {
   location: Location;
@@ -15,8 +14,6 @@ export default function Blog(props: {
     allMdx: { edges: { node: PostExcerpt }[] };
   };
 }) {
-  const posts = props.data.allMdx.edges;
-
   return (
     <Layout
       location={props.location}
@@ -26,7 +23,7 @@ export default function Blog(props: {
       <PageTitleStyle>Blog posts</PageTitleStyle>
       <ContainerStyle>
         <PostsStyle>
-          {posts.map(({ node }) => {
+          {props.data.allMdx.edges.map(({ node }) => {
             return (
               <li key={node.fields.slug}>
                 {node.frontmatter.date}{' '}
