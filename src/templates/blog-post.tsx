@@ -44,8 +44,9 @@ const PostHeaderStyled = styled.div`
   margin-bottom: ${Dimensions.SpacingM};
 `;
 
-const TitleStyled = styled.h1`
+const TitleStyled = styled.h3`
   margin: 0;
+  font-size: 32px;
 `;
 
 export const pageQuery = graphql`
