@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
+import { Dimensions } from '../entities/enums';
 
 export default function Index(props: {
   location: Location;
@@ -160,7 +161,7 @@ const ContainerStyle = styled.div`
 const ColumnStyle = styled.div`
   text-align: center;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 ${Dimensions.SpacingM};
   line-height: 2em;
   width: 33%;
   &:first-of-type {

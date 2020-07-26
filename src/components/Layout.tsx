@@ -95,7 +95,7 @@ const HeaderStyle = styled.header<{ isLanding: boolean }>`
   display: flex;
   flex-direction: ${props => (props.isLanding === true ? 'column' : 'row')};
   text-align: center;
-  padding: 20px;
+  padding: ${Dimensions.SpacingM};
   justify-content: center;
   align-items: center;
 `;
@@ -118,7 +118,7 @@ const TitleStyle = styled.h1`
 
 const SubTitleStyle = styled.h2`
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: ${Dimensions.SpacingM};
   font-size: 24px;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
@@ -135,7 +135,7 @@ const AvatarStyle = styled.img<{ isLanding: boolean }>`
 const Main = styled.main`
   color: ${Colors.LightText};
   font-family: 'Lato', sans-serif;
-  padding: 20px;
+  padding: ${Dimensions.SpacingM};
 `;
 
 const MainContentWrapperStyle = styled.div`

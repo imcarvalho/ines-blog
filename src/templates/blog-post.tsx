@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
@@ -7,6 +8,7 @@ import PreviousNextPosts from '../components/PreviousNextPosts';
 import { Post, PostExcerpt } from '../entities/Post';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
+import { Dimensions } from '../entities/enums';
 
 export default function BlogPostTemplate(props: {
   location: Location;
@@ -25,14 +27,26 @@ export default function BlogPostTemplate(props: {
       siteMetadata={props.data.site.siteMetadata}
     >
       <SEO title={post.frontmatter.title} description={post.excerpt} />
-      <h1>{post.frontmatter.title}</h1>
-      <strong>{post.frontmatter.date}</strong>
+      <PostHeaderStyled>
+        <TitleStyled>{post.frontmatter.title}</TitleStyled>
+        <strong>{post.frontmatter.date}</strong>
+      </PostHeaderStyled>
       <MDXRenderer>{post.body}</MDXRenderer>
-      <hr />
       <PreviousNextPosts posts={props.pageContext} />
     </Layout>
   );
 }
+
+const PostHeaderStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: ${Dimensions.SpacingM};
+`;
+
+const TitleStyled = styled.h1`
+  margin: 0;
+`;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

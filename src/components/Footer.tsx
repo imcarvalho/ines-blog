@@ -22,7 +22,7 @@ const FooterStyle = styled.footer`
   width: 100%;
   line-height: ${Dimensions.FooterHeight};
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 ${Dimensions.SpacingM};
 `;
 
 const LinkStyle = styled.a`

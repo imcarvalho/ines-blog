@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { Colors } from '../entities/enums';
+import { Colors, Dimensions } from '../entities/enums';
 import { Social } from '../entities/SiteMetadata';
 import getIcon from '../utils/getIcon';
 
@@ -42,10 +42,11 @@ const LinkListStyle = styled.ul`
 `;
 
 const LinkListItemStyle = styled.li<{ isLanding: boolean }>`
-  padding: 0 20px;
+  padding: 0 ${Dimensions.SpacingM};
   display: inline;
   &: first-of-type {
-    ${props => props.isLanding === false && 'padding: 0 20px 0 0'};
+    ${props =>
+      props.isLanding === false && `padding: 0 ${Dimensions.SpacingM} 0 0`};
   }
 `;
 
@@ -72,6 +73,6 @@ const LinkIconStyle = styled.svg`
   }
   @media (max-width: 768px) {
     width: 40px;
-    margin-top: 20px;
+    margin-top: ${Dimensions.SpacingM};
   }
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { PostExcerpt } from '../entities/Post';
+import { Dimensions } from '../entities/enums';
 
 export default function PreviousNextPosts(props: {
   posts: {
@@ -37,7 +38,7 @@ export default function PreviousNextPosts(props: {
 }
 
 const ListStyle = styled.ul`
-  margin-top: 20px;
+  margin-top: ${Dimensions.SpacingM};
   list-style: none;
   width: 100%;
   display: flex;
@@ -45,5 +46,5 @@ const ListStyle = styled.ul`
 `;
 
 const ListItem = styled.li`
-  padding: 0 20px;
+  padding: 0 ${Dimensions.SpacingM};
 `;
