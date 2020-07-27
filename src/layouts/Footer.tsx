@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Container, Flex } from 'tamia';
 import { Colors, Dimensions } from '../entities/enums';
 
 export default function Footer() {
   return (
     <FooterStyle>
-      <span>
-        Built with
-        {` `}
-        <LinkStyle href="https://www.gatsbyjs.org" target="_blank">
-          Gatsby
-        </LinkStyle>
-        , hosted on{' '}
-        <LinkStyle href="https://www.netlify.com" target="_blank">
-          Netlify
-        </LinkStyle>
-      </span>
-      <span>&copy; {new Date().getFullYear()}</span>
+      <ContainerNoPaddingStyle>
+        <Flex justifyContent="space-between">
+          <span>
+            Built with
+            {` `}
+            <LinkStyle href="https://www.gatsbyjs.org" target="_blank">
+              Gatsby
+            </LinkStyle>
+            , hosted on{' '}
+            <LinkStyle href="https://www.netlify.com" target="_blank">
+              Netlify
+            </LinkStyle>
+          </span>
+          <span>&copy; {new Date().getFullYear()}</span>
+        </Flex>
+      </ContainerNoPaddingStyle>
     </FooterStyle>
   );
 }
+
+const ContainerNoPaddingStyle = styled(Container)`
+  padding-top: 0;
+  padding-bottom: 0;
+`;
 
 const FooterStyle = styled.footer`
   height: ${Dimensions.FooterHeight};
@@ -27,10 +37,6 @@ const FooterStyle = styled.footer`
   color: ${Colors.LightBackground};
   width: 100%;
   line-height: ${Dimensions.FooterHeight};
-  box-sizing: border-box;
-  padding: 0 ${Dimensions.SpacingM};
-  display: flex;
-  justify-content: space-between;
 `;
 
 const LinkStyle = styled.a`
