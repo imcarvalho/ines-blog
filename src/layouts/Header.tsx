@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled, { createGlobalStyle } from 'styled-components';
-import Provider from './Provider';
+import styled from 'styled-components';
 import { Colors, Dimensions } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
-import { Location } from '../entities/Location';
 import SocialIcons from './../components/SocialIcons';
-import Footer from './Footer';
 
 export default function Layout(props: {
   isLanding: boolean;

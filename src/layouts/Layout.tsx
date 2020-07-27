@@ -6,6 +6,7 @@ import { Colors, Dimensions } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 import Header from './Header';
+import HeaderLanding from './HeaderLanding';
 import Footer from './Footer';
 
 export default function Layout(props: {
@@ -26,7 +27,11 @@ export default function Layout(props: {
     <Provider>
       <GlobalStyle />
       <MainContentWrapperStyle>
-        <Header isLanding={isLanding} siteMetadata={props.siteMetadata} />
+        {isLanding ? (
+          <HeaderLanding siteMetadata={props.siteMetadata} />
+        ) : (
+          <Header isLanding={isLanding} siteMetadata={props.siteMetadata} />
+        )}
         <main>
           <Container>{props.children}</Container>
         </main>

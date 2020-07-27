@@ -64,7 +64,7 @@ const colors = {
 };
 const fontWeights = {
   base: 400,
-  heading: 300,
+  heading: 700,
   bold: 800,
 };
 const lineHeights = {
@@ -122,6 +122,7 @@ export default {
   headingStyles: {
     1: {
       ...headingBaseStyles,
+      fontFamily: 'Pacifico',
       fontSize: 'xxl',
     },
     2: {
