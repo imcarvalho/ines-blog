@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
+import Provider from './Provider';
 import { Colors, Dimensions } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
-import SocialIcons from './SocialIcons';
-import Footer from './Footer';
+import SocialIcons from './../components/SocialIcons';
+import Footer from '../components/Footer';
 
 export default function Layout(props: {
   location: Location;
@@ -22,7 +23,7 @@ export default function Layout(props: {
   const isLanding = props.location.pathname === rootPath;
 
   return (
-    <>
+    <Provider>
       <GlobalStyle />
       <MainContentWrapperStyle>
         <HeaderStyle isLanding={isLanding}>
@@ -49,7 +50,7 @@ export default function Layout(props: {
         <Main>{props.children}</Main>
       </MainContentWrapperStyle>
       {!isLanding && <Footer />}
-    </>
+    </Provider>
   );
 }
 

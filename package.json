@@ -38,7 +38,8 @@
     "react-helmet": "^5.2.0",
     "react-switch": "^5.0.0",
     "react-typography": "^0.16.19",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "tamia": "^5.9.3"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.1",

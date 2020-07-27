@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
+import Layout from '../layouts/Layout';
 import { SiteMetadata } from '../entities/SiteMetadata';
 
 export default function TagsPage(props: {
