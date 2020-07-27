@@ -55,7 +55,7 @@ const fontSizes = {
 };
 const colors = {
   bg: '#fff',
-  base: '#66a7b8',
+  base: '#27515a',
   border: '#ddd',
   primary: '#42798f',
   hover: '#8f5842',
