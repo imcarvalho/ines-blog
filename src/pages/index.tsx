@@ -21,7 +21,7 @@ export default function Index(props: {
     >
       <SEO title="Senior Frontend Developer" />
       <Container>
-        <Stack gap="l" direction="row">
+        <Stack gap="l" direction={['column', 'row']}>
           <LandingColumn icon="female-technologist.png" title="My background">
             <Text mb="m">
               Born in Portugal <span aria-hidden="true">🇵🇹</span>, currently
