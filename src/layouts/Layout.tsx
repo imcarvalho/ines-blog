@@ -30,13 +30,13 @@ export default function Layout(props: {
         {isLanding ? (
           <HeaderLanding siteMetadata={props.siteMetadata} />
         ) : (
-          <Header isLanding={isLanding} siteMetadata={props.siteMetadata} />
+          <Header siteMetadata={props.siteMetadata} />
         )}
         <main>
           <Container>{props.children}</Container>
         </main>
       </MainContentWrapperStyle>
-      {!isLanding && <Footer />}
+      <Footer />
     </Provider>
   );
 }
@@ -45,32 +45,16 @@ const GlobalStyle = createGlobalStyle`
   body {
       margin: 0;
       padding: 0;
-      background-color: ${Colors.LightBackground};
-      font-family: 'Lato', sans-serif;
       }
   a {
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: none;
-      transition: color 1s;
-      color: ${Colors.LightForeground};
-      &:visited {
-          color: ${Colors.LightForeground};
-      }
+    font-weight: 700;
+    text-decoration: none;
+    color: ${Colors.LightForeground};
+    transition: color 1s;
       &:hover {
           color: ${Colors.LightForegroundHover};
       }
   }
-  h3 {
-      font-size: 32px;
-      font-weight: 700;
-      margin: 0 0 10px 0;
-    }
-  ul {
-      margin:0;
-      padding: 0;
-  }
-  li { list-style-position: inside; }
 `;
 
 const MainContentWrapperStyle = styled.div`
