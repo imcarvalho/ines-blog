@@ -8,6 +8,6 @@ export enum Colors {
 }
 
 export enum Dimensions {
-  FooterHeight = '60px',
+  FooterHeight = '40px',
   SpacingM = '20px',
 }
