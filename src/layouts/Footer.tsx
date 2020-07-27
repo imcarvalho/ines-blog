@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Container, Flex } from 'tamia';
 import { Colors, Dimensions } from '../entities/enums';

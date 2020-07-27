@@ -54,13 +54,12 @@ const fontSizes = {
   xs: '0.75rem',
 };
 const colors = {
-  bg: '#fff',
+  bg: '#ffffff',
   base: '#27515a',
   border: '#ddd',
   primary: '#42798f',
   hover: '#8f5842',
   selection: '#27515a',
-  selectionAlpha: 'rgba(255,237,117,0.25)', // TODO
 };
 const fontWeights = {
   base: 400,

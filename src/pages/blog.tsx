@@ -1,29 +1,34 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { Container, Heading } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
-import { PostExcerpt } from '../entities/Post';
+import { PostExcerpt, SidebarPost } from '../entities/Post';
 import { Location } from '../entities/Location';
 
 export default function Blog(props: {
   location: Location;
   data: {
     site: { siteMetadata: SiteMetadata };
-    allMdx: { edges: { node: PostExcerpt }[] };
+    posts: { edges: { node: PostExcerpt }[] };
+    latestPosts: SidebarPost;
   };
 }) {
   return (
     <Layout
       location={props.location}
       siteMetadata={props.data.site.siteMetadata}
+      latestPosts={props.data.latestPosts}
     >
       <SEO title="Blog" />
-      <PageTitleStyle>Blog posts</PageTitleStyle>
-      <ContainerStyle>
-        <PostsStyle>
-          {props.data.allMdx.edges.map(({ node }) => {
+      <Heading level={3} textAlign="center">
+        Blog posts
+      </Heading>
+      <Container>
+        <ul>
+          {props.data.posts.edges.map(({ node }) => {
             return (
               <li key={node.fields.slug}>
                 {node.frontmatter.date}{' '}
@@ -33,35 +38,18 @@ export default function Blog(props: {
               </li>
             );
           })}
-        </PostsStyle>
-      </ContainerStyle>
+        </ul>
+      </Container>
     </Layout>
   );
 }
-
-const PageTitleStyle = styled.h3`
-  text-align: center;
-`;
-
-const ContainerStyle = styled.div`
-  display: flex;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: center;
-`;
-
-const PostsStyle = styled.ul`
-  list-style: none;
-  width: 60%;
-`;
 
 export const pageQuery = graphql`
   query {
     site {
       ...SiteMetadataFragment
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           fields {
@@ -71,6 +59,21 @@ export const pageQuery = graphql`
             date(formatString: "YYYY/MM/DD")
             title
             tags
+          }
+        }
+      }
+    }
+    latestPosts: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
           }
         }
       }
