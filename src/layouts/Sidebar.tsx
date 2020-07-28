@@ -1,11 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import { Heading, Box, Flex } from 'tamia';
-import { SidebarPosts } from '../entities/Post';
 
 function SidebarComponent(props: {
   data: {
-    posts: SidebarPosts;
     tags: { group: { fieldValue: string; totalCount: number }[] };
   };
 }) {
@@ -19,20 +17,6 @@ function SidebarComponent(props: {
       justifyContent={['space-evenly', 'space-evenly', 'flex-start']}
       width={1}
     >
-      <Box mb="l">
-        <Heading level={4} mb="m">
-          Latest Posts
-        </Heading>
-        <ul>
-          {props.data.posts.edges.map(({ node }) => (
-            <li key={node.fields.slug}>
-              <Link to={`/blog${node.fields.slug}`}>
-                {node.frontmatter.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Box>
       <Box mb="l">
         <Heading level={4} mb="m">
           Tags
@@ -57,21 +41,6 @@ export default function Sidebar(props) {
     <StaticQuery
       query={graphql`
         query {
-          posts: allMdx(
-            sort: { fields: [frontmatter___date], order: DESC }
-            limit: 3
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                }
-              }
-            }
-          }
           tags: allMdx(limit: 2000) {
             group(field: frontmatter___tags) {
               fieldValue

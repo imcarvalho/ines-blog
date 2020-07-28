@@ -17,9 +17,3 @@ export type Post = {
   body: string;
   frontmatter: Frontmatter;
 };
-
-export type SidebarPosts = {
-  edges: {
-    node: { fields: { slug: string }; frontmatter: { title: string } };
-  }[];
-};
