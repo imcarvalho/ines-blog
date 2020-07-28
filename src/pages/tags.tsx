@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../layouts/Layout';
-import { SiteMetadata } from '../entities/SiteMetadata';
 
 export default function TagsPage(props: {
   location: Location;
@@ -12,7 +11,6 @@ export default function TagsPage(props: {
         totalCount: number;
       }[];
     };
-    site: { siteMetadata: SiteMetadata };
   };
 }) {
   if (!props.data) {
@@ -41,9 +39,6 @@ export default function TagsPage(props: {
 
 export const pageQuery = graphql`
   query {
-    site {
-      ...SiteMetadataFragment
-    }
     allMdx(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue

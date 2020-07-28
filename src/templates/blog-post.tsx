@@ -7,14 +7,12 @@ import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
 import PreviousNextPosts from '../components/PreviousNextPosts';
 import { Post, PostExcerpt, SidebarPosts } from '../entities/Post';
-import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 
 export default function BlogPostTemplate(props: {
   location: Location;
   data: {
     post: Post;
-    site: { siteMetadata: SiteMetadata };
   };
   pageContext: { previous: PostExcerpt; next: PostExcerpt };
 }) {
@@ -25,10 +23,7 @@ export default function BlogPostTemplate(props: {
   const post = props.data.post;
 
   return (
-    <Layout
-      location={props.location}
-      siteMetadata={props.data.site.siteMetadata}
-    >
+    <Layout location={props.location}>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Flex flexDirection="row" justifyContent="space-between" mb="l">
         <Heading level={2}>{post.frontmatter.title}</Heading>
@@ -52,9 +47,6 @@ const PostWrapperStyle = styled.div`
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      ...SiteMetadataFragment
-    }
     post: mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)

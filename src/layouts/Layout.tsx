@@ -1,26 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
 import { Container, Flex } from 'tamia';
 import Provider from './Provider';
 import { Dimensions } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
-import { SidebarPosts } from '../entities/Post';
 import { GlobalStyle } from './styles/GlobalStyle';
 import Header from './Header';
 import HeaderLanding from './HeaderLanding';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 
-export default function Layout(props: {
+function LayoutComponent(props: {
   location: Location;
-  siteMetadata: SiteMetadata;
+  data: { site: { siteMetadata: SiteMetadata } };
   children: React.ReactNode;
 }) {
   // @ts-ignore until I discover how to get Typescript to figure out __PATH_PREFIX__
   const rootPath = `${__PATH_PREFIX__}/`;
 
-  if (!props.siteMetadata) {
+  if (!props.data) {
     return null;
   }
 
@@ -31,9 +31,9 @@ export default function Layout(props: {
       <GlobalStyle />
       <MainContentWrapperStyle>
         {isLanding ? (
-          <HeaderLanding siteMetadata={props.siteMetadata} />
+          <HeaderLanding siteMetadata={props.data.site.siteMetadata} />
         ) : (
-          <Header siteMetadata={props.siteMetadata} />
+          <Header siteMetadata={props.data.site.siteMetadata} />
         )}
         <Container>
           <Flex width={1} flex="0 25em" flexDirection="row-reverse">
@@ -50,6 +50,21 @@ export default function Layout(props: {
       </MainContentWrapperStyle>
       <Footer />
     </Provider>
+  );
+}
+
+export default function Layout(props) {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          site {
+            ...SiteMetadataFragment
+          }
+        }
+      `}
+      render={data => <LayoutComponent data={data} {...props} />}
+    />
   );
 }
 

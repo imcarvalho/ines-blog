@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../layouts/Layout';
-import { SiteMetadata } from '../entities/SiteMetadata';
 
 type Data = {
   allMdx: {
@@ -17,7 +16,6 @@ type Data = {
       };
     }[];
   };
-  site: { siteMetadata: SiteMetadata };
 };
 
 export default function Tags(props: {
@@ -35,10 +33,7 @@ export default function Tags(props: {
   } tagged with "${props.pageContext.tag}"`;
 
   return (
-    <Layout
-      location={props.location}
-      siteMetadata={props.data.site.siteMetadata}
-    >
+    <Layout location={props.location}>
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
@@ -59,9 +54,6 @@ export default function Tags(props: {
 
 export const pageQuery = graphql`
   query($tag: String) {
-    site {
-      ...SiteMetadataFragment
-    }
     allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }

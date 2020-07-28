@@ -5,20 +5,11 @@ import { Container, Stack, Text } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
 import LandingColumn from '../components/LandingColumn';
-import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 
-export default function Index(props: {
-  location: Location;
-  data: {
-    site: { siteMetadata: SiteMetadata };
-  };
-}) {
+export default function Index(props: { location: Location }) {
   return (
-    <Layout
-      location={props.location}
-      siteMetadata={props.data.site.siteMetadata}
-    >
+    <Layout location={props.location}>
       <SEO title="Senior Frontend Developer" />
       <Container>
         <Stack gap="l" direction={['column', 'row', 'row', 'row']}>
@@ -136,14 +127,6 @@ export default function Index(props: {
     </Layout>
   );
 }
-
-export const pageQuery = graphql`
-  query {
-    site {
-      ...SiteMetadataFragment
-    }
-  }
-`;
 
 const ListStyle = styled.ul`
   list-style: circle;

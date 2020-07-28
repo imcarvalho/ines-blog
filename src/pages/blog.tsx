@@ -3,22 +3,17 @@ import { Link, graphql } from 'gatsby';
 import { Container, Heading, Text, Box, Flex } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
-import { SiteMetadata } from '../entities/SiteMetadata';
-import { PostExcerpt, SidebarPosts } from '../entities/Post';
+import { PostExcerpt } from '../entities/Post';
 import { Location } from '../entities/Location';
 
 export default function Blog(props: {
   location: Location;
   data: {
-    site: { siteMetadata: SiteMetadata };
     posts: { edges: { node: PostExcerpt }[] };
   };
 }) {
   return (
-    <Layout
-      location={props.location}
-      siteMetadata={props.data.site.siteMetadata}
-    >
+    <Layout location={props.location}>
       <SEO title="Blog" />
       <Heading level={3} textAlign="center">
         Posts
@@ -48,9 +43,6 @@ export default function Blog(props: {
 
 export const pageQuery = graphql`
   query {
-    site {
-      ...SiteMetadataFragment
-    }
     posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 10
