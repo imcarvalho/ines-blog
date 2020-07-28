@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import { Heading, Box } from 'tamia';
 import Layout from '../layouts/Layout';
 
 type Data = {
@@ -34,19 +35,20 @@ export default function Tags(props: {
 
   return (
     <Layout location={props.location}>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields;
-          const { title } = node.frontmatter;
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-
+      <Heading level={2}>{tagHeader}</Heading>
+      <Box mt="l" mb="l">
+        <ul>
+          {edges.map(({ node }) => {
+            const { slug } = node.fields;
+            const { title } = node.frontmatter;
+            return (
+              <li key={slug}>
+                <Link to={slug}>{title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      </Box>
       <Link to="/tags">All tags</Link>
     </Layout>
   );
