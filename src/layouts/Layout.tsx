@@ -36,12 +36,22 @@ function LayoutComponent(props: {
           <Header siteMetadata={props.data.site.siteMetadata} />
         )}
         <Container>
-          <Flex width={1} flex="0 25em" flexDirection="row-reverse">
-            <Flex flexGrow={1} width="100%" flexDirection="column">
+          <Flex
+            width={1}
+            pt="m"
+            flex="0 25em"
+            flexDirection={['column', 'column', 'row-reverse']}
+          >
+            <Flex
+              flexGrow={1}
+              width={'100%'}
+              flexDirection="column"
+              mb={['xl', 'xl', 0]}
+            >
               <main>{props.children}</main>
             </Flex>
             {!isLanding && (
-              <Flex flexShrink={0} width="250px">
+              <Flex flexShrink={0} width={[1, 1, '250px']}>
                 <Sidebar />
               </Flex>
             )}

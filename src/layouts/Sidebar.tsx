@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { Heading, Box } from 'tamia';
+import { Heading, Box, Flex } from 'tamia';
 import { SidebarPosts } from '../entities/Post';
 
 function SidebarComponent(props: {
@@ -14,7 +14,11 @@ function SidebarComponent(props: {
   }
 
   return (
-    <nav>
+    <Flex
+      flexDirection={['row', 'row', 'column']}
+      justifyContent={['space-evenly', 'space-evenly', 'flex-start']}
+      width={1}
+    >
       <Box mb="l">
         <Heading level={4} mb="m">
           Latest Posts
@@ -43,7 +47,7 @@ function SidebarComponent(props: {
           ))}
         </ul>
       </Box>
-    </nav>
+    </Flex>
   );
 }
 
