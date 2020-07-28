@@ -8,7 +8,7 @@ export default function LandingColumn(props: {
   title: string;
 }) {
   return (
-    <Box width={[0.33, 1, 1, 1]}>
+    <Box width={[1, 1, 1, 0.33, 0.33]}>
       <Flex
         justifyContent="center"
         flexDirection="column"

@@ -10,7 +10,7 @@ export default function Index(props: { location: Location }) {
   return (
     <Layout location={props.location}>
       <SEO title="Senior Frontend Developer" />
-      <Stack gap="l" direction={['column', 'row', 'row', 'row']}>
+      <Stack gap="l" direction={['column', 'column', 'column', 'row', 'row']}>
         <LandingColumn icon="female-technologist.png" title="My background">
           <Text mb="m">
             Born in Portugal <span aria-hidden="true">🇵🇹</span>, currently
