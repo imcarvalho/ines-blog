@@ -15,7 +15,6 @@ export default function BlogPostTemplate(props: {
   data: {
     post: Post;
     site: { siteMetadata: SiteMetadata };
-    latestPosts: SidebarPosts;
   };
   pageContext: { previous: PostExcerpt; next: PostExcerpt };
 }) {
@@ -29,7 +28,6 @@ export default function BlogPostTemplate(props: {
     <Layout
       location={props.location}
       siteMetadata={props.data.site.siteMetadata}
-      latestPosts={props.data.latestPosts}
     >
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Flex flexDirection="row" justifyContent="space-between" mb="l">
@@ -65,21 +63,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         tags
-      }
-    }
-    latestPosts: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-          }
-        }
       }
     }
   }

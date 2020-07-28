@@ -12,14 +12,12 @@ export default function Blog(props: {
   data: {
     site: { siteMetadata: SiteMetadata };
     posts: { edges: { node: PostExcerpt }[] };
-    latestPosts: SidebarPosts;
   };
 }) {
   return (
     <Layout
       location={props.location}
       siteMetadata={props.data.site.siteMetadata}
-      latestPosts={props.data.latestPosts}
     >
       <SEO title="Blog" />
       <Heading level={3} textAlign="center">
@@ -65,21 +63,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "YYYY/MM/DD")
-            title
-          }
-        }
-      }
-    }
-    latestPosts: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
             title
           }
         }

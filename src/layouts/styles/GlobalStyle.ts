@@ -18,6 +18,6 @@ export const GlobalStyle = createGlobalStyle`
       }
   }
   p {
-    padding-bottom: 10px;
+    padding: 5px 0;
   }
 `;

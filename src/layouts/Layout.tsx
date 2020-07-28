@@ -16,7 +16,6 @@ export default function Layout(props: {
   location: Location;
   siteMetadata: SiteMetadata;
   children: React.ReactNode;
-  latestPosts?: SidebarPosts;
 }) {
   // @ts-ignore until I discover how to get Typescript to figure out __PATH_PREFIX__
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -41,9 +40,9 @@ export default function Layout(props: {
             <Flex flexGrow={1} width="100%" flexDirection="column">
               <main>{props.children}</main>
             </Flex>
-            {!isLanding && props.latestPosts && (
+            {!isLanding && (
               <Flex flexShrink={0} width="250px">
-                <Sidebar latestPosts={props.latestPosts} />
+                <Sidebar />
               </Flex>
             )}
           </Flex>
