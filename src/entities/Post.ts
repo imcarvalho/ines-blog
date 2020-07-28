@@ -18,8 +18,8 @@ export type Post = {
   frontmatter: Frontmatter;
 };
 
-export type SidebarPost = {
+export type SidebarPosts = {
   edges: {
-    node: { fields: { slug: string }; frontmatter: { title: string } }[];
-  };
+    node: { fields: { slug: string }; frontmatter: { title: string } };
+  }[];
 };

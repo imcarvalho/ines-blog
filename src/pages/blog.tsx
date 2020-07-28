@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
-import { Container, Heading } from 'tamia';
+import { Container, Heading, Text, Box, Flex } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
 import { SiteMetadata } from '../entities/SiteMetadata';
-import { PostExcerpt, SidebarPost } from '../entities/Post';
+import { PostExcerpt, SidebarPosts } from '../entities/Post';
 import { Location } from '../entities/Location';
 
 export default function Blog(props: {
@@ -13,7 +12,7 @@ export default function Blog(props: {
   data: {
     site: { siteMetadata: SiteMetadata };
     posts: { edges: { node: PostExcerpt }[] };
-    latestPosts: SidebarPost;
+    latestPosts: SidebarPosts;
   };
 }) {
   return (
@@ -24,17 +23,22 @@ export default function Blog(props: {
     >
       <SEO title="Blog" />
       <Heading level={3} textAlign="center">
-        Blog posts
+        Posts
       </Heading>
       <Container>
         <ul>
           {props.data.posts.edges.map(({ node }) => {
             return (
               <li key={node.fields.slug}>
-                {node.frontmatter.date}{' '}
-                <Link to={`/blog${node.fields.slug}`}>
-                  {node.frontmatter.title}
-                </Link>
+                <Box mb="l">
+                  <Flex justifyContent="space-between" mb="s">
+                    <Link to={`/blog${node.fields.slug}`}>
+                      {node.frontmatter.title}
+                    </Link>
+                    <Text variant="strong">{node.frontmatter.date}</Text>
+                  </Flex>
+                  <Text>{node.excerpt}</Text>
+                </Box>
               </li>
             );
           })}
@@ -49,16 +53,19 @@ export const pageQuery = graphql`
     site {
       ...SiteMetadataFragment
     }
-    posts: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 10
+    ) {
       edges {
         node {
+          excerpt
           fields {
             slug
           }
           frontmatter {
             date(formatString: "YYYY/MM/DD")
             title
-            tags
           }
         }
       }

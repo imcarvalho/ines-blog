@@ -59,7 +59,7 @@ const colors = {
   border: '#ddd',
   primary: '#42798f',
   hover: '#8f5842',
-  selection: '#27515a',
+  selection: '#C8BBD2',
 };
 const fontWeights = {
   base: 400,
@@ -92,7 +92,7 @@ const textBaseStyles = {
 
 export default {
   // Base font size (applied to body)
-  baseFontSize: '1em', // 1em = 16px
+  baseFontSize: '1em',
   blockMarginBottom: space.m,
   headingMarginTop: space.l,
   listMargin: '1.3em',
