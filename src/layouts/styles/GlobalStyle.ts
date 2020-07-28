@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%
       }
   a {
+    font-weight: 700;
     text-decoration: none;
     color: ${Colors.LightForeground};
     transition: color 1s;
