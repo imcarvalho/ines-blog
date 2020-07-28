@@ -98,7 +98,7 @@ export default {
   listMargin: '1.3em',
   page: {
     // Body
-    bodyMaxWidth: '100rem',
+    bodyMaxWidth: '100%',
     bodyPaddingX: space.m,
     bodyPaddingY: 0,
 
