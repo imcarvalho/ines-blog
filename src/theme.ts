@@ -151,5 +151,13 @@ export default {
     base: {
       ...textBaseStyles,
     },
+    strong: {
+      ...textBaseStyles,
+      fontWeight: 700,
+    },
+    large: {
+      ...textBaseStyles,
+      fontSize: 'l',
+    },
   },
 } as const;
