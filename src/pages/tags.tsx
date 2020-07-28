@@ -14,15 +14,11 @@ export default function TagsPage(props: {
   };
 }) {
   if (!props.data) {
-    console.log(props);
     return null;
   }
 
   return (
-    <Layout
-      location={props.location}
-      siteMetadata={props.data.site.siteMetadata}
-    >
+    <Layout location={props.location}>
       <h1>Tags</h1>
       <ul>
         {props.data.allMdx.group.map(tag => (
