@@ -22,4 +22,7 @@ export const AvatarStyle = styled.img`
   border: 10px ${Colors.LightBackground} solid;
   margin: auto;
   box-sizing: content-box;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

@@ -24,7 +24,12 @@ export default function Layout(props: { siteMetadata: SiteMetadata }) {
               alt="Home"
             />
           </LinkStyle>
-          <Flex flexDirection="column" paddingLeft="l" alignItems="flex-start">
+          <Flex
+            flexDirection="column"
+            paddingLeft="l"
+            alignItems={['center', 'center', 'flex-start']}
+            justifyContent="center"
+          >
             <Box pb="m">
               <HeadingHeaderStyle level={1}>
                 {props.siteMetadata.author}
