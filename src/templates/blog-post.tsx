@@ -8,6 +8,7 @@ import SEO from '../components/Seo';
 import PreviousNextPosts from '../components/PreviousNextPosts';
 import { Post, PostExcerpt } from '../entities/Post';
 import { Location } from '../entities/Location';
+import { Dimensions } from '../entities/enums';
 
 export default function BlogPostTemplate(props: {
   location: Location;
@@ -41,7 +42,10 @@ const PostWrapperStyle = styled.div`
   & > ul {
     list-style: circle;
     list-style-position: inside;
-    margin: 20px;
+    margin: ${Dimensions.SpacingM};
+  }
+  & > h3 {
+    margin: ${Dimensions.SpacingM} 0 ${Dimensions.SpacingS};
   }
 `;
 

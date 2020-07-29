@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { Flex, Box } from 'tamia';
 import { PostExcerpt } from '../entities/Post';
-import { Dimensions } from '../entities/enums';
 
 export default function PreviousNextPosts(props: {
   posts: {
@@ -15,36 +14,35 @@ export default function PreviousNextPosts(props: {
   }
 
   return (
-    <ListStyle>
-      {props.posts.previous && (
-        <ListItem>
-          <Link to={`/blog${props.posts.previous.fields.slug}`} rel="prev">
-            ← {props.posts.previous.frontmatter.title}
-          </Link>
-        </ListItem>
-      )}
-      {props.posts.next && (
-        <ListItem>
-          <Link
-            to={`/blog${props.posts.next.fields.slug}`}
-            rel="props.posts.next"
-          >
-            {props.posts.next.frontmatter.title} →
-          </Link>
-        </ListItem>
-      )}
-    </ListStyle>
+    <Box mt="l" width={1}>
+      <ul>
+        <Flex justifyContent="center">
+          {props.posts.previous && (
+            <li>
+              <Box mr="m">
+                <Link
+                  to={`/blog${props.posts.previous.fields.slug}`}
+                  rel="prev"
+                >
+                  ← {props.posts.previous.frontmatter.title}
+                </Link>
+              </Box>
+            </li>
+          )}
+          {props.posts.next && (
+            <li>
+              <Box ml="m">
+                <Link
+                  to={`/blog${props.posts.next.fields.slug}`}
+                  rel="props.posts.next"
+                >
+                  {props.posts.next.frontmatter.title} →
+                </Link>
+              </Box>
+            </li>
+          )}
+        </Flex>
+      </ul>
+    </Box>
   );
 }
-
-const ListStyle = styled.ul`
-  margin-top: ${Dimensions.SpacingM};
-  list-style: none;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
-const ListItem = styled.li`
-  padding: 0 ${Dimensions.SpacingM};
-`;

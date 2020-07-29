@@ -7,7 +7,9 @@ export enum Colors {
   LightText = '#27515a',
 }
 
+// @TODO: read dimensions from the theme
 export enum Dimensions {
   FooterHeight = '40px',
   SpacingM = '20px',
+  SpacingS = '10px',
 }

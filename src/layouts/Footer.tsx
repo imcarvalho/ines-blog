@@ -13,6 +13,10 @@ export default function Footer() {
             {` `}
             <LinkStyle href="https://www.gatsbyjs.org" target="_blank">
               Gatsby
+            </LinkStyle>{' '}
+            and{' '}
+            <LinkStyle href="https://tamiadev.github.io/tamia/" target="_blank">
+              Tâmia
             </LinkStyle>
             , hosted on{' '}
             <LinkStyle href="https://www.netlify.com" target="_blank">
