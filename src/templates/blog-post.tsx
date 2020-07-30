@@ -45,6 +45,7 @@ export default function BlogPostTemplate(props: {
   );
 }
 
+// @TODO: check how to have spacing on Tâmia images
 const PostWrapperStyle = styled.div`
   & > ul {
     list-style: circle;
@@ -53,6 +54,10 @@ const PostWrapperStyle = styled.div`
   }
   & > h3 {
     margin: ${theme.space.m} 0 ${theme.space.s};
+  }
+
+  & > .gatsby-resp-image-wrapper {
+    margin: ${theme.space.m} 0;
   }
 `;
 
