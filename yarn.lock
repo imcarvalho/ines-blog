@@ -14970,6 +14970,11 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
+tamia-gatsby-link@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/tamia-gatsby-link/-/tamia-gatsby-link-1.0.6.tgz#1dd6cf0a37508543fd01ec52a6d53c1f375df1ed"
+  integrity sha512-UFsVapvq/WglgJ+HqCJV4eb1DpCNVPr75w9w9q/b4yLgEO5iXe/hi0iB/n7U+nQajr/vukSXLglXKqRlkaB5pA==
+
 tamia@^5.9.3:
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/tamia/-/tamia-5.9.3.tgz#793669e5ef4be323394ae8387147f95b6651c114"
