@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { Stack, Text } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
@@ -37,7 +38,8 @@ export default function Index(props: { location: Location }) {
             >
               Check my LinkedIn
             </a>{' '}
-            for more detailed info <span aria-hidden="true">✨</span>
+            for more detailed info <span aria-hidden="true">✨</span>, and you
+            can also check <Link to="/blog">my blog</Link>.
           </Text>
         </LandingColumn>
         <LandingColumn icon="red-heart.png" title="Loved stack and tools">

@@ -27,14 +27,7 @@ export default function Layout(props: { siteMetadata: SiteMetadata }) {
           </Box>
           <Box paddingBottom="m">
             <HeadingHeaderStyle level={1}>
-              <LinkStyle
-                to={
-                  // @ts-ignore until I discover how to get Typescript to figure out __PATH_PREFIX__
-                  __PATH_PREFIX__
-                }
-              >
-                {props.siteMetadata.title}
-              </LinkStyle>
+              <LinkStyle to="/">{props.siteMetadata.title}</LinkStyle>
             </HeadingHeaderStyle>
           </Box>
           <Box paddingBottom="m">
