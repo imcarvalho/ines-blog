@@ -60,6 +60,9 @@ const colors = {
   primary: '#42798f',
   hover: '#8f5842',
   selection: '#C8BBD2',
+  // custom colors
+  header: '#66a7b8',
+  headerForeground: '#ffffff',
 };
 const fontWeights = {
   base: 400,
@@ -109,6 +112,9 @@ export default {
 
     // Max text column width (<TextContainer>)
     textMaxWidth: '40rem',
+
+    // footer
+    footerHeight: '40px',
   },
   fonts,
   space,

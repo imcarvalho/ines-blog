@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import { Container, Flex } from 'tamia';
+import theme from '../theme';
 import Provider from './Provider';
-import { Dimensions } from '../entities/enums';
 import { SiteMetadata } from '../entities/SiteMetadata';
 import { Location } from '../entities/Location';
 import { GlobalStyle } from './styles/GlobalStyle';
@@ -79,5 +79,5 @@ export default function Layout(props) {
 }
 
 const MainContentWrapperStyle = styled.div`
-  min-height: calc(100vh - ${Dimensions.FooterHeight});
+  min-height: calc(100vh - ${theme.page.footerHeight});
 `;

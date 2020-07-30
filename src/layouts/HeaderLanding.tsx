@@ -11,9 +11,6 @@ import {
 } from './styles/HeaderStyles';
 
 export default function Layout(props: { siteMetadata: SiteMetadata }) {
-  // @ts-ignore until I discover how to get Typescript to figure out __PATH_PREFIX__
-  const rootPath = `${__PATH_PREFIX__}/`;
-
   return (
     <HeaderStyle>
       <Container>
@@ -23,16 +20,21 @@ export default function Layout(props: { siteMetadata: SiteMetadata }) {
           flexDirection="column"
         >
           <Box paddingBottom="s">
-            <LinkStyle to={rootPath}>
-              <AvatarLandingStyle
-                src={`${props.siteMetadata.siteUrl}/avatar_small.jpg`}
-                alt="Home"
-              />
-            </LinkStyle>
+            <AvatarLandingStyle
+              src={`${props.siteMetadata.siteUrl}/avatar_small.jpg`}
+              alt=""
+            />
           </Box>
           <Box paddingBottom="m">
             <HeadingHeaderStyle level={1}>
-              {props.siteMetadata.title}
+              <LinkStyle
+                to={
+                  // @ts-ignore until I discover how to get Typescript to figure out __PATH_PREFIX__
+                  __PATH_PREFIX__
+                }
+              >
+                {props.siteMetadata.title}
+              </LinkStyle>
             </HeadingHeaderStyle>
           </Box>
           <Box paddingBottom="m">

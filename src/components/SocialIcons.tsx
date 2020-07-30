@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import theme from '../theme';
 import styled from 'styled-components';
-import { Colors, Dimensions } from '../entities/enums';
 import { Social } from '../entities/SiteMetadata';
 import getIcon from '../utils/getIcon';
 
@@ -9,6 +9,7 @@ export default function SocialIcons(props: {
   socialLinks: Social[];
   isLanding: boolean;
 }) {
+  console.log(theme);
   return (
     <LinkListStyle>
       {props.socialLinks.map(link => (
@@ -34,7 +35,7 @@ export default function SocialIcons(props: {
 }
 
 const LinkStyle = styled(Link)`
-  color: ${Colors.LightBackground};
+  color: ${theme.colors.headerForeground};
 `;
 
 const LinkListStyle = styled.ul`
@@ -42,11 +43,10 @@ const LinkListStyle = styled.ul`
 `;
 
 const LinkListItemStyle = styled.li<{ isLanding: boolean }>`
-  padding: 0 ${Dimensions.SpacingM};
+  padding: 0 ${theme.space.m};
   display: inline;
   &: first-of-type {
-    ${props =>
-      props.isLanding === false && `padding: 0 ${Dimensions.SpacingM} 0 0`};
+    ${props => props.isLanding === false && `padding: 0 ${theme.space.m} 0 0`};
   }
 `;
 
@@ -73,6 +73,6 @@ const LinkIconStyle = styled.svg`
   }
   @media (max-width: 768px) {
     width: 40px;
-    margin-top: ${Dimensions.SpacingM};
+    margin-top: ${theme.space.m};
   }
 `;

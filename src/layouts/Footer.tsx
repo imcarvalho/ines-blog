@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Flex } from 'tamia';
-import { Colors, Dimensions } from '../entities/enums';
+import theme from '../theme';
 
 export default function Footer() {
   return (
@@ -36,11 +36,11 @@ const ContainerNoPaddingStyle = styled(Container)`
 `;
 
 const FooterStyle = styled.footer`
-  height: ${Dimensions.FooterHeight};
-  background-color: ${Colors.HeaderBackground};
-  color: ${Colors.LightBackground};
+  height: ${theme.page.footerHeight};
+  background-color: ${theme.colors.header};
+  color: ${theme.colors.headerForeground};
   width: 100%;
-  line-height: ${Dimensions.FooterHeight};
+  line-height: ${theme.page.footerHeight};
 `;
 
 const LinkStyle = styled.a`
