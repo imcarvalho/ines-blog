@@ -92,7 +92,7 @@ const textBaseStyles = {
 
 export default {
   // Base font size (applied to body)
-  baseFontSize: '1em',
+  baseFontSize: '1.2em',
   blockMarginBottom: space.m,
   headingMarginTop: space.l,
   listMargin: '1.3em',
