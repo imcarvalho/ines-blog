@@ -4,45 +4,39 @@ import { Flex, Box } from 'tamia';
 import { PostExcerpt } from '../entities/Post';
 
 export default function PreviousNextPosts(props: {
-  posts: {
+  previousNextPosts: {
     previous: PostExcerpt | null;
     next: PostExcerpt | null;
   };
 }) {
-  if (!props.posts.previous && !props.posts.next) {
+  if (!props.previousNextPosts.previous && !props.previousNextPosts.next) {
     return null;
   }
 
+  const posts = props.previousNextPosts;
+
   return (
-    <Box mt="l" width={1}>
-      <ul>
-        <Flex justifyContent="center">
-          {props.posts.previous && (
-            <li>
-              <Box mr="m">
-                <Link
-                  to={`/blog${props.posts.previous.fields.slug}`}
-                  rel="prev"
-                >
-                  ← {props.posts.previous.frontmatter.title}
-                </Link>
-              </Box>
-            </li>
-          )}
-          {props.posts.next && (
-            <li>
-              <Box ml="m">
-                <Link
-                  to={`/blog${props.posts.next.fields.slug}`}
-                  rel="props.posts.next"
-                >
-                  {props.posts.next.frontmatter.title} →
-                </Link>
-              </Box>
-            </li>
-          )}
-        </Flex>
-      </ul>
-    </Box>
+    <ul>
+      <Flex justifyContent="center">
+        {posts.previous && (
+          <li>
+            <Box mr="m">
+              <Link to={`/blog${posts.previous.fields.slug}`} rel="prev">
+                ← {posts.previous.frontmatter.title}
+              </Link>
+            </Box>
+          </li>
+        )}
+        {posts.next && (
+          <li>
+            <Box ml="m">
+              <Link to={`/blog${posts.next.fields.slug}`} rel="posts.next">
+                {posts.next.frontmatter.title} →
+              </Link>
+            </Box>
+          </li>
+        )}
+      </Flex>
+    </ul>
   );
 }

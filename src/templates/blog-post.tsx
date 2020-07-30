@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
-import PreviousNextPosts from '../components/PreviousNextPosts';
+import PostFooter from '../components/PostFooter';
 import { Post, PostExcerpt } from '../entities/Post';
 import { Location } from '../entities/Location';
 
@@ -26,7 +26,7 @@ export default function BlogPostTemplate(props: {
   return (
     <Layout location={props.location}>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
-      <Flex justifyContent="center">
+      <Flex alignItems="center" flexDirection="column">
         <TextContainer>
           <Flex flexDirection="row" justifyContent="space-between" mb="l">
             <Heading level={2}>{post.frontmatter.title}</Heading>
@@ -36,8 +36,11 @@ export default function BlogPostTemplate(props: {
             <MDXRenderer>{post.body}</MDXRenderer>
           </PostWrapperStyle>
         </TextContainer>
+        <PostFooter
+          tags={post.frontmatter.tags}
+          previousNextPosts={props.pageContext}
+        />
       </Flex>
-      <PreviousNextPosts posts={props.pageContext} />
     </Layout>
   );
 }

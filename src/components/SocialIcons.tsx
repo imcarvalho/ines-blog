@@ -9,7 +9,6 @@ export default function SocialIcons(props: {
   socialLinks: Social[];
   isLanding: boolean;
 }) {
-  console.log(theme);
   return (
     <LinkListStyle>
       {props.socialLinks.map(link => (

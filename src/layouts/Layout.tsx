@@ -37,24 +37,13 @@ function LayoutComponent(props: {
         )}
         <Container>
           <Flex
-            width={1}
+            flexGrow={1}
+            width={'100%'}
             pt="m"
-            flex="0 25em"
-            flexDirection={['column', 'column', 'row-reverse']}
+            flexDirection="column"
+            mb={['xl', 'xl', 0]}
           >
-            <Flex
-              flexGrow={1}
-              width={'100%'}
-              flexDirection="column"
-              mb={['xl', 'xl', 0]}
-            >
-              <main>{props.children}</main>
-            </Flex>
-            {!isLanding && (
-              <Flex flexShrink={0} width={[1, 1, '250px']}>
-                <Sidebar />
-              </Flex>
-            )}
+            <main>{props.children}</main>
           </Flex>
         </Container>
       </MainContentWrapperStyle>
