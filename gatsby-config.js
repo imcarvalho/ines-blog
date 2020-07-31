@@ -161,7 +161,7 @@ module.exports = {
       options: {
         fonts: [
           `pacifico`,
-          `lato\:400,700`, // you can also specify font weights and styles
+          `lato\:400,700,400i`, // you can also specify font weights and styles
         ],
         display: 'swap',
       },
