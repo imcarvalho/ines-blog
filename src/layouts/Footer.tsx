@@ -41,6 +41,11 @@ const FooterStyle = styled.footer`
   color: ${theme.colors.headerForeground};
   width: 100%;
   line-height: ${theme.page.footerHeight};
+  overflow-y: hidden;
+
+  @media (max-width: ${theme.breakpoints[1]}) {
+    font-size: 0.6em;
+  }
 `;
 
 const LinkStyle = styled.a`
