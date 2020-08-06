@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Flex, Box, Text } from 'tamia';
-import theme from '../theme';
 import PreviousNextPosts from './PreviousNextPosts';
 import { PostExcerpt } from '../entities/Post';
 
@@ -13,20 +12,17 @@ export default function PostFooter(props: {
   tags: string;
 }) {
   return (
-    <Flex
-      mt="m"
-      width={theme.page.textMaxWidth}
-      alignItems="center"
-      flexDirection="column"
-    >
-      <Text textAlign="end" width={1}>
-        <strong>Tags</strong>:{' '}
-        <Link to={`/tags/${props.tags}`}>{props.tags}</Link>
-      </Text>
-      <Box mb="s" mt="s" width={theme.page.textMaxWidth}>
-        <hr />
-      </Box>
-      <PreviousNextPosts {...props} />
-    </Flex>
+    <>
+      <Flex mt="m" width={1} alignItems="center" flexDirection="column">
+        <Text textAlign="end" width={1}>
+          <strong>Tags</strong>:{' '}
+          <Link to={`/tags/${props.tags}`}>{props.tags}</Link>
+        </Text>
+        <Box mb="s" mt="s" width={1}>
+          <hr />
+        </Box>
+        <PreviousNextPosts {...props} />
+      </Flex>
+    </>
   );
 }

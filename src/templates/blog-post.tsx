@@ -41,11 +41,11 @@ export default function BlogPostTemplate(props: {
           <PostWrapperStyle>
             <MDXRenderer>{post.body}</MDXRenderer>
           </PostWrapperStyle>
+          <PostFooter
+            tags={post.frontmatter.tags}
+            previousNextPosts={props.pageContext}
+          />
         </TextContainer>
-        <PostFooter
-          tags={post.frontmatter.tags}
-          previousNextPosts={props.pageContext}
-        />
       </Flex>
     </Layout>
   );
