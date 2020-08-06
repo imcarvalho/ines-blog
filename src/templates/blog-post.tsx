@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Heading, Flex, TextContainer } from 'tamia';
+import { Heading, Flex, TextContainer, Box } from 'tamia';
 import theme from '../theme';
 import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -28,9 +28,15 @@ export default function BlogPostTemplate(props: {
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Flex alignItems="center" flexDirection="column">
         <TextContainer>
-          <Flex flexDirection="row" justifyContent="space-between" mb="l">
+          <Flex
+            flexDirection={['column-reverse', 'column-reverse', 'row']}
+            justifyContent="space-between"
+            mb={['m', 'm', 'l']}
+          >
             <Heading level={2}>{post.frontmatter.title}</Heading>
-            <strong>{post.frontmatter.date}</strong>
+            <Box mb={['s', 's', 0]}>
+              <strong>{post.frontmatter.date}</strong>
+            </Box>
           </Flex>
           <PostWrapperStyle>
             <MDXRenderer>{post.body}</MDXRenderer>
