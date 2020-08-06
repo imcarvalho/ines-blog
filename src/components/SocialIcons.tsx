@@ -47,6 +47,10 @@ const LinkListItemStyle = styled.li<{ isLanding: boolean }>`
   &: first-of-type {
     ${props => props.isLanding === false && `padding: 0 ${theme.space.m} 0 0`};
   }
+
+  @media (max-width: ${theme.breakpoints[1]}) {
+    padding: 0 ${theme.space.s};
+  }
 `;
 
 const BasicLinkStyle = `text-decoration: none;
@@ -70,7 +74,7 @@ const LinkIconStyle = styled.svg`
   &:hover {
     transform: scale(1.5);
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints[1]}) {
     width: 40px;
     margin-top: ${theme.space.m};
   }

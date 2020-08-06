@@ -15,7 +15,12 @@ export const HeaderStyle = styled.header`
 
 export const HeadingHeaderStyle = styled(Heading)<{ level: number }>`
   color: ${theme.colors.headerForeground};
-  ${props => props.level === 2 && `font-size: 1.5rem`}
+  ${props => props.level === 2 && `font-size: 1.5rem;`}
+
+  @media (max-width: ${theme.breakpoints[1]}) {
+    ${props => props.level === 2 && `font-size: 1.2rem;`}
+    text-align: center;
+  }
 `;
 
 export const AvatarStyle = styled.img`
@@ -23,7 +28,7 @@ export const AvatarStyle = styled.img`
   border: 10px ${theme.colors.headerForeground} solid;
   margin: auto;
   box-sizing: content-box;
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints[1]}) {
     display: none;
   }
 `;

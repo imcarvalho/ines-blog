@@ -23,7 +23,7 @@ export default function Layout(props: { siteMetadata: SiteMetadata }) {
           </div>
           <Flex
             flexDirection="column"
-            paddingLeft="l"
+            paddingLeft={[0, 0, 'l']}
             alignItems={['center', 'center', 'flex-start']}
             justifyContent="center"
           >
