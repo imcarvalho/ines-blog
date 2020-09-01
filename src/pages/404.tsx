@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Link } from 'tamia';
+import { Link } from 'gatsby';
+import { Flex } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
 import { Location } from '../entities/Location';
