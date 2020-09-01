@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Box, Link } from 'tamia';
 import Layout from '../layouts/Layout';
 import SEO from '../components/Seo';
 import { Location } from '../entities/Location';
@@ -8,8 +8,13 @@ export default function NotFoundPage(props: { location: Location }) {
   return (
     <Layout location={props.location}>
       <SEO title="404: Not Found" />
-      <h1>Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Box justifyContent="center">
+        <h2>Not Found</h2>
+        <p>RIP ⚰️</p>
+        <p>
+          <Link to="/">Go back to the homepage</Link>
+        </p>
+      </Box>
     </Layout>
   );
 }
