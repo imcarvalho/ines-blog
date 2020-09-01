@@ -8,7 +8,7 @@ export default function NotFoundPage(props: { location: Location }) {
   return (
     <Layout location={props.location}>
       <SEO title="404: Not Found" />
-      <Flex flexDirection="row" justifyContent="center" width={1}>
+      <Flex flexDirection="column" justifyContent="center" width={1}>
         <h2>Not Found</h2>
         <p>RIP ⚰️</p>
         <p>
