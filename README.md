@@ -1,4 +1,8 @@
-👷‍♀️Blog in the making
+# imcarvalho.me
+
+My personal webpage! 🌈 Blog in the making 👷‍♀️
+
+Icons from [Simple Icons](https://simpleicons.org/), and avatar drawn by the lovely [Danielle Chuatico](https://daniellechuatico.com/).
 
 ## TODO list - bugs and improvements
 
