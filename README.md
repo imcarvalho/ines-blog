@@ -14,7 +14,7 @@ Icons from [Simple Icons](https://simpleicons.org/), and avatar drawn by the lov
 - [x] on mobile, tags make the page scrollable to the left
 - [x] on mobile, header text should be centered and smaller
 - [x] On small screens logo is hidden but still focusable
-- [ ] style the 404 page
+- [x] style the 404 page
 - [x] footer on firefox mobile is not looking good
 - [x] On mobile, date and post title should occupy the whole line
 - [ ] Add pagination
