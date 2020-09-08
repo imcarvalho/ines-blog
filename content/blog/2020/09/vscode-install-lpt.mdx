@@ -1,0 +1,22 @@
+---
+date: 2020-09-08
+title: Issues after a fresh install of VSCode on macOS
+tags: ['LPT']
+---
+
+I've mentioned that [I love VSCode](https://imcarvalho.me/blog/2020/07/my-vscode-extensions). I've had to install it on new machines a couple of times this year, and on two of those times I ran into bizarre issues: the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) complained about not being on the Applications folder, which wasn't true, themes failing to load with apparent permissions issues, and the `code` command not being added to the Path successfully.
+
+VSCode itself _worked_, but something was definitely off. And if I can't activate the Neon Dreams of [Synthwave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode), it's not going to work out with me.
+
+I couldn't figure out what was happening. I installed VSCode like any other macOS application: download it, move it to the Applications folder, run it, done.
+
+But apparently there's something on the macOS Catalina stars that was not having it. On both ocasions, how did I fix this?
+
+I ended up uninstalling the application, and then reinstalling it through [Homebrew](https://brew.sh/).
+
+    brew tap homebrew/cask
+    brew cask install visual-studio-code
+
+After this, I no longer had any issues. I suspect it has to do with some funky permissions, but all the chmod magic couldn't fix it before I resorted to Homebrew.
+
+Have you had to fall back to this sort of magic?
