@@ -28,16 +28,12 @@ export default function BlogPostTemplate(props: {
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Flex alignItems="center" flexDirection="column">
         <TextContainer>
-          <Flex
-            flexDirection={['column-reverse', 'column-reverse', 'row']}
-            justifyContent="space-between"
-            mb={['m', 'm', 'l']}
-          >
-            <Heading level={2}>{post.frontmatter.title}</Heading>
-            <Box mb={['s', 's', 0]}>
-              <strong>{post.frontmatter.date}</strong>
-            </Box>
-          </Flex>
+          <Box mb={['s', 's', 0]}>
+            <strong>{post.frontmatter.date}</strong>
+          </Box>
+          <Heading mb={['m', 'm', 'l']} level={2}>
+            {post.frontmatter.title}
+          </Heading>
           <PostWrapperStyle>
             <MDXRenderer>{post.body}</MDXRenderer>
           </PostWrapperStyle>

@@ -22,7 +22,7 @@ export default function Blog(props: {
       <Heading level={3} textAlign="center">
         Posts
       </Heading>
-      <Flex justifyContent="center" mt={['l', 'l', 0]}>
+      <Flex justifyContent="center" mt={['l', 'l', 'm']}>
         <TextContainer>
           <ul>
             {props.data.posts.edges.map(({ node }) => {
