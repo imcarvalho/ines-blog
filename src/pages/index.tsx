@@ -14,8 +14,7 @@ export default function Index(props: { location: Location }) {
       <Stack gap="l" direction={['column', 'column', 'column', 'row', 'row']}>
         <LandingColumn icon="female-technologist.png" title="My background">
           <Text mb="m">
-            Born in Portugal <span aria-hidden="true">🇵🇹</span>, currently
-            living in Berlin, Deutschland <span aria-hidden="true">🇩🇪</span>
+            Portugal <span aria-hidden="true">🇵🇹</span>, ex-emmigrant 
           </Text>
           <Text mb="m">
             I've been doing web development since I was 12 years old, and I've
