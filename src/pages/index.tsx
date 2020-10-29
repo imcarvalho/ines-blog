@@ -16,7 +16,7 @@ export default function Index(props: { location: Location }) {
           <Text mb="m">
             Portugal <span aria-hidden="true">🇵🇹</span>, ex-emmigrant in Berlin, 
             Germany <span aria-hidden="true">🇩🇪</span>, and now 100% remote 
-            <span aria-hidden="true">🌍</span>
+             <span aria-hidden="true">🌍</span>
           </Text>
           <Text mb="m">
             I've been doing web development since I was 12 years old, and I've
