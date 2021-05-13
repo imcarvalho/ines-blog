@@ -110,14 +110,7 @@ export default function Index(props: { location: Location }) {
               Reading <span aria-hidden="true">📚</span>
             </ListItemStyle>
             <ListItemStyle>
-              <a
-                target="_blank"
-                href="https://www.instagram.com/cucaelola/"
-                rel="noreferrer"
-              >
-                My dogs
-              </a>
-              , and other people's dogs as well{' '}
+                My dogs{' '}
               <span aria-hidden="true">🐶</span>
             </ListItemStyle>
           </ListStyle>
